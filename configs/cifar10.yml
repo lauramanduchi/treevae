@@ -1,0 +1,39 @@
+run_name: 'cifar10'
+
+data:
+  data_name: 'cifar10'
+  num_clusters_data: 10
+
+training:
+  num_epochs: 150
+  num_epochs_smalltree: 150
+  num_epochs_intermediate_fulltrain: 0
+  num_epochs_finetuning: 0
+  batch_size: 256
+  lr: 0.001
+  weight_decay: 0.00001
+  decay_lr: 0.1
+  decay_stepsize: 100
+  decay_kl: 0.01
+  kl_start: 0.01
+
+  inp_shape: 3072
+  latent_dim:  [64,64,64,64,64,64]
+  mlp_layers: [4096, 512, 512, 512, 512, 512] 
+  initial_depth: 1
+  activation: 'mse'
+  encoder: 'cnn2'
+  grow: True
+  prune: True
+  num_clusters_tree: 10
+  augment: True
+  augmentation_method: 'InfoNCE,instancewise_full'
+  aug_decisions_weight: 100
+  compute_ll: False
+
+globals:
+  wandb_logging: 'disabled'
+  eager_mode: False
+  seed: 42
+  save_model: False
+  config_name: 'cifar10'

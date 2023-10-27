@@ -144,7 +144,6 @@ Untitled.ipynb
 wandb/*
 run/*
 old*
-configs/*
 dataset/*
 *.png
 data/*

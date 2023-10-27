@@ -1,0 +1,39 @@
+run_name: 'mnist' # name of the run
+
+data:
+  data_name: 'mnist' # name of the dataset
+  num_clusters_data: 10 # number of true clusters in the data (if known), this is used only for evaluation purposes
+
+training:
+  num_epochs: 150 # number of epochs to train the initial tree
+  num_epochs_smalltree: 150 # number of epochs to train the sub-tree during growing
+  num_epochs_intermediate_fulltrain: 80 # number of epochs to train the full tree during growing
+  num_epochs_finetuning: 200 # number of epochs to train the final tree
+  batch_size: 256 # batch size
+  lr: 0.001 # learning rate
+  weight_decay: 0.00001 # optimizer weight decay
+  decay_lr: 0.1 # learning rate decay
+  decay_stepsize: 100 # number of epochs after which learning rate decays
+  decay_kl: 0.001 # KL-annealing weight increase per epoch (capped at 1)
+  kl_start: 0.0 # KL-annealing weight initialization
+
+  inp_shape: 784 # The total dimensions of the input data (if rgb images of 32x32 then 32x32x3)
+  latent_dim: [8, 8, 8, 8, 8, 8] # A list of latent dimensions for each depth of the tree from the bottom to the root, last value is the dimensionality of the root node
+  mlp_layers: [128, 128, 128, 128, 128, 128] # A list of hidden units number for the MLP transformations for each depth of the tree from bottom to root
+  initial_depth: 1 # The initial depth of the tree (root has depth 0 and a root with two leaves has depth 1)
+  activation: "sigmoid" # The name of the activation function for the reconstruction loss [sigmoid, mse]
+  encoder: 'cnn1' # Type of encoder/decoder used
+  grow: True # Whether to grow the tree
+  prune: True # Whether to prune the tree of empty leaves
+  num_clusters_tree: 10 # The maximum number of leaves of the final tree
+  compute_ll: False # Whether to compute the log-likelihood estimation at the end of the training (it might take some time)
+  augment: False # Whether to use contrastive learning through augmentation
+  augmentation_method: 'simple' # The type of augmentation method used if augment is True
+  aug_decisions_weight: 1 # The weight of the contrastive losses
+
+globals:
+  wandb_logging: 'disabled' # Whether to log to wandb [online, offline, disabled]
+  eager_mode: True # Whether to run in eager or graph mode
+  seed: 42 # Random seed
+  save_model: False # Whether to save the model. Set to True for inspecting models in notebook
+  config_name: 'mnist' 

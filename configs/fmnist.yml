@@ -1,0 +1,39 @@
+run_name: 'fmnist'
+
+data:
+  data_name: 'fmnist'
+  num_clusters_data: 10
+
+training:
+  num_epochs: 150
+  num_epochs_smalltree: 150
+  num_epochs_intermediate_fulltrain: 80
+  num_epochs_finetuning: 200
+  batch_size: 256
+  lr: 0.001
+  weight_decay: 0.00001
+  decay_lr: 0.1
+  decay_stepsize: 100
+  decay_kl: 0.001
+  kl_start: 0.0
+
+  inp_shape: 784
+  latent_dim: [8, 8, 8, 8, 8, 8]
+  mlp_layers: [128, 128, 128, 128, 128, 128]
+  initial_depth: 1
+  activation: "sigmoid"
+  encoder: 'cnn1'
+  grow: True
+  prune: True
+  num_clusters_tree: 10
+  compute_ll: False
+  augment: False
+  augmentation_method: 'simple'
+  aug_decisions_weight: 1
+
+globals:
+  wandb_logging: 'disabled'
+  eager_mode: True
+  seed: 42
+  save_model: False
+  config_name: 'fmnist'
