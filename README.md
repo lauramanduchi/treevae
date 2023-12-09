@@ -20,4 +20,4 @@ For exploring TreeVAE results (including the discovered tree, the generation of 
 2. Copy the experiment path where the model is saved (it will be printed out).
 3. Open ```tree_exploration.ipynb```, replace the experiment path with yours, and have fun exploring the model!
 
-DISCLAIMER: This PyTorch repository was thoroughly debugged and tested, however, please note that the experiments of the submission were performed using the repository with the Tensorflow code.
+DISCLAIMER: This PyTorch repository was thoroughly debugged and tested, however, please note that the experiments of the submission were performed using the repository with the Tensorflow code (https://github.com/lauramanduchi/treevae-tensorflow).
