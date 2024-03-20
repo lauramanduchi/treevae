@@ -1,10 +1,10 @@
 # Tree Variational Autoencoders
-This is the PyTorch repository for the NeurIPS 2023 Publication (https://neurips.cc/virtual/2023/poster/71188).
+This is the PyTorch repository for the NeurIPS 2023 Spotlight Publication (https://neurips.cc/virtual/2023/poster/71188).
  
 TreeVAE is a new generative method that learns the optimal tree-based posterior distribution of latent variables to capture the hierarchical structures present in the data. It adapts the architecture to discover the optimal tree for encoding dependencies between latent variables. TreeVAE optimizes the balance between shared and specialized architecture, enhancing the learning and adaptation capabilities of generative models. 
 An example of a tree learned by TreeVAE is depicted in the figure below. Each edge and each split are encoded by neural networks, while the circles depict latent variables. Each sample is associated with a probability distribution over different paths of the discovered tree. The resulting tree thus organizes the data into an interpretable hierarchical structure in an unsupervised fashion, optimizing the amount of shared information between samples. In CIFAR-10, for example, the method divides the vehicles and animals into two different subtrees and similar groups (such as planes and ships) share common ancestors.
 
-![Alt text](https://github.com/lauramanduchi/treevae/assets/32577028/2f473189-cb05-4482-bf77-ad128fa78b84)
+![Alt text](https://github.com/lauramanduchi/treevae/blob/main/hierarchical-cifar10.pdf?raw=true)
 
 
 For running TreeVAE:
@@ -21,3 +21,17 @@ For exploring TreeVAE results (including the discovered tree, the generation of 
 3. Open ```tree_exploration.ipynb```, replace the experiment path with yours, and have fun exploring the model!
 
 DISCLAIMER: This PyTorch repository was thoroughly debugged and tested, however, please note that the experiments of the submission were performed using the repository with the Tensorflow code (https://github.com/lauramanduchi/treevae-tensorflow).
+
+## Citing
+To cite TreeVAE please use the following BibTEX entries:
+
+```
+@inproceedings{
+manduchi2023tree,
+title={Tree Variational Autoencoders},
+author={Laura Manduchi and Moritz Vandenhirtz and Alain Ryser and Julia E Vogt},
+booktitle={Thirty-seventh Conference on Neural Information Processing Systems},
+year={2023},
+url={https://openreview.net/forum?id=adq0oXb9KM}
+}
+```
